@@ -1,0 +1,55 @@
+:root {
+  /* Backgrounds */
+  --color-bg-nav:    #1a1a1a;
+  --color-bg-hero:   #1a1a1a;
+  --color-bg-jobs:   #131313;
+  --color-bg-card:   #1c1c1c;
+  --color-bg-footer: #0d0d0d;
+  --color-bg-modal:  #1c1c1c;
+  --color-overlay:   rgba(0, 0, 0, 0.75);
+
+  /* Text */
+  --color-text-primary:   #ffffff;
+  --color-text-secondary: #aaaaaa;
+  --color-text-muted:     #666666;
+
+  /* Accent */
+  --color-accent:         #f5a623;
+  --color-accent-text:    #000000;
+
+  /* Borders */
+  --color-border-card:    #2a2a2a;
+  --color-border-section: #f5a623;
+
+  /* Job type side-line colors (yellowish spectrum) */
+  --color-type-permanent: #f5a623;
+  --color-type-monthly:   #ffd740;
+  --color-type-daily:     #ff8f00;
+  --color-type-specific:  #ffe57f;
+
+  /* Typography */
+  --font-family-base:     system-ui, -apple-system, sans-serif;
+  --font-size-nav:        14px;
+  --font-size-label:      10px;
+  --font-size-hero-tag:   10px;
+  --font-size-hero-title: 28px;
+  --font-size-hero-sub:   15px;
+  --font-size-hero-cta:   13px;
+  --font-size-card-title: 18px;
+  --font-size-card-meta:  15px;
+  --font-size-card-desc:  15px;
+  --font-size-card-rate:  17px;
+  --font-size-apply-btn:  13px;
+  --font-size-modal-title: 20px;
+  --font-size-modal-desc:  15px;
+  --font-size-modal-contact: 15px;
+  --font-size-footer:     12px;
+
+  /* Spacing */
+  --card-padding:            16px;
+  --card-border-left-width:  4px;
+  --card-min-height:         220px;
+  --apply-btn-width:         55%;
+  --section-padding:         48px 16px;
+  --nav-height:              56px;
+}
