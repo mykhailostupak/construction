@@ -1,0 +1,7 @@
+{
+  "name": "construction-sync-worker",
+  "version": "1.0.0",
+  "devDependencies": {
+    "wrangler": "^3"
+  }
+}

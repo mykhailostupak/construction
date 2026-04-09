@@ -1,0 +1,9 @@
+name = "construction-sync-bot"
+main = "index.js"
+compatibility_date = "2024-01-01"
+
+# Set these in Cloudflare dashboard → Workers → your-worker → Settings → Variables:
+# TELEGRAM_BOT_TOKEN
+# TELEGRAM_ALLOWED_USERS
+# GH_PAT
+# GH_REPO  (e.g. "yourusername/construction")
