@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="page_title">Construction — Open Positions</title>
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a class="nav__brand" href="#" aria-label="Home">CONSTRUCTION</a>
+    <div class="nav__lang-switcher" role="group" aria-label="Language switcher">
+      <button class="lang-btn lang-btn--active" data-lang="en" aria-pressed="true">EN</button>
+      <button class="lang-btn" data-lang="pl" aria-pressed="false">PL</button>
+      <button class="lang-btn" data-lang="uk" aria-pressed="false">UA</button>
+      <button class="lang-btn" data-lang="ru" aria-pressed="false">RU</button>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ── Hero ── -->
+    <section class="hero" aria-labelledby="hero-title">
+      <p class="hero__tag" data-i18n="hero_label">General Contractor</p>
+      <h1 class="hero__title" id="hero-title" data-i18n="hero_tagline">We Build. We're Hiring.</h1>
+      <p class="hero__subtext" data-i18n="hero_subtext">Residential &amp; commercial projects. Join a team that builds right.</p>
+      <a class="hero__cta" href="#jobs" data-i18n="hero_cta">View Open Positions ↓</a>
+    </section>
+
+    <!-- ── Jobs ── -->
+    <section class="jobs" id="jobs" aria-labelledby="jobs-label">
+      <p class="jobs__label" id="jobs-label" data-i18n="jobs_label">Open Positions</p>
+      <div class="jobs__grid" id="jobs-grid" role="list">
+        <!-- Populated by jobs.js -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer class="footer" role="contentinfo">
+    <p class="footer__brand" data-i18n="footer_copy">Construction Firm</p>
+    <div class="footer__contact" id="footer-contact">
+      <!-- Populated by jobs.js from config.js -->
+    </div>
+    <p class="footer__copy">&copy; <span id="footer-year"></span> Construction Firm</p>
+  </footer>
+
+  <!-- ── Apply Modal ── -->
+  <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal">
+      <button class="modal__close" id="modal-close" aria-label="Close">&times;</button>
+      <h2 class="modal__title" id="modal-title"></h2>
+      <p class="modal__description" id="modal-description"></p>
+      <div class="modal__contact" id="modal-contact"></div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/lang/en.js"></script>
+  <script src="js/lang/pl.js"></script>
+  <script src="js/lang/uk.js"></script>
+  <script src="js/lang/ru.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/jobs.js"></script>
+</body>
+</html>
