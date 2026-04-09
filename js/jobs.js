@@ -8,7 +8,7 @@ function buildContactBlock(contactOption) {
     items.push(`
       <div class="modal__contact-item">
         <span class="modal__contact-label">${t('modal_call')}:</span>
-        <span class="modal__contact-value">${CONFIG.phone}</span>
+        <span class="modal__contact-value">${escapeHTML(CONFIG.phone)}</span>
       </div>
     `)
   }
@@ -17,7 +17,7 @@ function buildContactBlock(contactOption) {
     items.push(`
       <div class="modal__contact-item">
         <span class="modal__contact-label">${t('modal_email')}:</span>
-        <span class="modal__contact-value">${CONFIG.email}</span>
+        <span class="modal__contact-value">${escapeHTML(CONFIG.email)}</span>
       </div>
     `)
   }
@@ -123,8 +123,8 @@ function renderFooterContact() {
   const el = document.getElementById('footer-contact')
   if (!el) return
   el.innerHTML = `
-    <span>${t('footer_phone')}: ${CONFIG.phone}</span><br>
-    <span>${t('footer_email')}: ${CONFIG.email}</span>
+    <span>${t('footer_phone')}: ${escapeHTML(CONFIG.phone)}</span><br>
+    <span>${t('footer_email')}: ${escapeHTML(CONFIG.email)}</span>
   `
 }
 
