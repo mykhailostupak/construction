@@ -1,0 +1,55 @@
+<h2>System Architecture</h2>
+<p class="subtitle">How all the pieces connect</p>
+
+<div class="mockup">
+  <div class="mockup-header">Data Flow</div>
+  <div class="mockup-body" style="font-family:monospace;font-size:13px;line-height:2;padding:16px;">
+
+    <div style="display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:8px;align-items:center;text-align:center;">
+
+      <div style="background:#1a1a1a;border:2px solid #f5a623;border-radius:8px;padding:12px;">
+        <div style="font-size:20px;">📊</div>
+        <div style="color:#f5a623;font-weight:700;margin-top:4px;">Google Sheet</div>
+        <div style="color:#aaa;font-size:11px;margin-top:4px;">Job listings<br>Title, description,<br>phone, status</div>
+      </div>
+
+      <div style="color:#f5a623;font-size:20px;">→</div>
+
+      <div style="background:#1a1a1a;border:2px solid #555;border-radius:8px;padding:12px;">
+        <div style="font-size:20px;">⚙️</div>
+        <div style="color:#fff;font-weight:700;margin-top:4px;">GitHub Action</div>
+        <div style="color:#aaa;font-size:11px;margin-top:4px;">Fetches sheet<br>Generates jobs.json<br>Commits + deploys</div>
+      </div>
+
+      <div style="color:#f5a623;font-size:20px;">→</div>
+
+      <div style="background:#1a1a1a;border:2px solid #555;border-radius:8px;padding:12px;">
+        <div style="font-size:20px;">🌐</div>
+        <div style="color:#fff;font-weight:700;margin-top:4px;">GitHub Pages</div>
+        <div style="color:#aaa;font-size:11px;margin-top:4px;">Static HTML/CSS/JS<br>Loads jobs.json<br>Fast & free</div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:24px;border-top:1px solid #333;padding-top:16px;">
+      <div style="color:#f5a623;font-weight:700;margin-bottom:8px;">Sync Triggers (pick one or both):</div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div style="background:#111;border:1px solid #333;border-radius:6px;padding:12px;" data-choice="scheduled" onclick="toggleSelect(this)">
+          <div style="color:#fff;font-weight:600;">⏰ Scheduled</div>
+          <div style="color:#aaa;font-size:12px;margin-top:4px;">GitHub Action runs every hour automatically. Firm edits the sheet → site updates within 60 min. Zero setup for them.</div>
+          <div style="color:#f5a623;font-size:11px;margin-top:6px;">Simple · No extra tools</div>
+        </div>
+
+        <div style="background:#111;border:1px solid #333;border-radius:6px;padding:12px;" data-choice="telegram" onclick="toggleSelect(this)">
+          <div style="color:#fff;font-weight:600;">📱 Telegram Bot</div>
+          <div style="color:#aaa;font-size:12px;margin-top:4px;">Firm sends <code style="color:#f5a623;">/sync</code> to a bot → triggers GitHub Action immediately. Instant updates on demand.</div>
+          <div style="color:#f5a623;font-size:11px;margin-top:6px;">Instant · Feels like magic</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<p class="subtitle" style="margin-top:16px;">Click the sync trigger option(s) you prefer — or both!</p>

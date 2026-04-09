@@ -1,0 +1,42 @@
+[
+  {
+    "id": "job-001",
+    "type": "permanent",
+    "rate": "25 zł/h",
+    "location": "Warsaw",
+    "urgency": "from Apr 15",
+    "contact_option": "phone",
+    "title": { "en": "Framing Carpenter", "pl": "", "uk": "", "ru": "" },
+    "description": { "en": "Experienced framer needed for residential projects. Must have own tools.", "pl": "", "uk": "", "ru": "" }
+  },
+  {
+    "id": "job-002",
+    "type": "monthly",
+    "rate": "5 500 zł/mo",
+    "location": "Gdańsk",
+    "urgency": "from now",
+    "contact_option": "phone+email",
+    "title": { "en": "Site Foreman", "pl": "", "uk": "", "ru": "" },
+    "description": { "en": "Managing a 12-person crew on a commercial build. 3+ years experience required.", "pl": "", "uk": "", "ru": "" }
+  },
+  {
+    "id": "job-003",
+    "type": "daily",
+    "rate": "200 zł/day",
+    "location": "Łódź",
+    "urgency": "immediately",
+    "contact_option": "phone",
+    "title": { "en": "Demolition Worker", "pl": "", "uk": "", "ru": "" },
+    "description": { "en": "Controlled demolition of interior walls. Safety cert required.", "pl": "", "uk": "", "ru": "" }
+  },
+  {
+    "id": "job-004",
+    "type": "specific",
+    "rate": "180 zł/day",
+    "location": "Krakow",
+    "urgency": "Apr 20–23",
+    "contact_option": "email",
+    "title": { "en": "Site Cleanup Crew", "pl": "", "uk": "", "ru": "" },
+    "description": { "en": "Post-construction cleanup for commercial site. 3-day contract.", "pl": "", "uk": "", "ru": "" }
+  }
+]
