@@ -16,4 +16,7 @@ const LANG_EN = {
   footer_phone:  'Phone',
   footer_email:  'Email',
   error_load:    'Could not load job listings. Please try again later.',
+  share_btn:     'Share',
+  share_copied:  'Link copied!',
+  job_filled:    'This position is no longer available.',
 }

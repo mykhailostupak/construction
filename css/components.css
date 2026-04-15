@@ -130,14 +130,15 @@
   flex: 1;
 }
 
-.job-card__apply-wrapper {
+.job-card__actions {
   margin-top: 14px;
-  text-align: center;
+  display: flex;
+  gap: 8px;
 }
 
 .apply-btn {
+  flex: 1;
   display: inline-block;
-  width: var(--apply-btn-width);
   background: var(--color-accent);
   color: var(--color-accent-text);
   font-size: var(--font-size-apply-btn);
@@ -148,6 +149,33 @@
   border: none;
   border-radius: 2px;
   cursor: pointer;
+}
+
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: transparent;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-apply-btn);
+  font-weight: 700;
+  padding: 10px 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 1px solid #333;
+  border-radius: 2px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.share-btn:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.share-btn.hidden {
+  display: none;
 }
 
 /* ── Empty state ── */
@@ -266,4 +294,29 @@
   color: #333;
   font-size: 11px;
   margin-top: 14px;
+}
+
+/* ── Toast ── */
+.toast {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%) translateY(12px);
+  background: #f5c518;
+  color: #111;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 10px 20px;
+  border-radius: 3px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s;
+  z-index: 999;
+  white-space: nowrap;
+}
+
+.toast--visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }

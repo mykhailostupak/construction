@@ -16,4 +16,7 @@ const LANG_PL = {
   footer_phone:  'Telefon',
   footer_email:  'E-mail',
   error_load:    'Nie udało się załadować ofert pracy. Spróbuj ponownie później.',
+  share_btn:     'Udostępnij',
+  share_copied:  'Link skopiowany!',
+  job_filled:    'Ta oferta pracy jest już niedostępna.',
 }

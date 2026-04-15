@@ -5,4 +5,8 @@ const CONFIG = {
 
   // Path to generated jobs data file
   jobsDataUrl: 'data/jobs.json',
+
+  // Cloudflare Worker URL — update after deploying worker
+  // e.g. 'https://construction-api.YOUR_SUBDOMAIN.workers.dev'
+  workerUrl: 'https://construction-api.msconstruction.workers.dev',
 }

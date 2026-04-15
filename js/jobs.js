@@ -29,6 +29,7 @@ function buildContactBlock(contactOption) {
 function buildJobCardHTML(job) {
   const title = job.title[currentLang] || job.title['en']
   const description = job.description[currentLang] || job.description['en']
+  const shareDisabled = !CONFIG.workerUrl ? ' hidden' : ''
 
   return `
     <article class="job-card job-card--${job.type}" role="listitem" data-job-id="${job.id}">
@@ -40,8 +41,12 @@ function buildJobCardHTML(job) {
         📍 ${escapeHTML(job.location)} &nbsp;·&nbsp; ${escapeHTML(job.type)} &nbsp;·&nbsp; ${escapeHTML(job.urgency)}
       </p>
       <p class="job-card__description">${escapeHTML(description)}</p>
-      <div class="job-card__apply-wrapper">
+      <div class="job-card__actions">
         <button class="apply-btn" data-job-id="${job.id}">${t('apply_btn')}</button>
+        <button class="share-btn${shareDisabled}" data-job-id="${job.id}" aria-label="${t('share_btn')}">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+          ${t('share_btn')}
+        </button>
       </div>
     </article>
   `
@@ -72,6 +77,47 @@ function renderJobCards() {
   grid.querySelectorAll('.apply-btn').forEach(btn => {
     btn.addEventListener('click', () => openApplyModal(btn.dataset.jobId))
   })
+
+  // Attach share button listeners
+  grid.querySelectorAll('.share-btn').forEach(btn => {
+    btn.addEventListener('click', () => shareJob(btn.dataset.jobId))
+  })
+}
+
+// ── Share ──────────────────────────────────────────────────────────
+function shareJob(jobId) {
+  const job = allJobs.find(j => j.id === jobId)
+  if (!job || !CONFIG.workerUrl) return
+
+  const shareUrl = `${CONFIG.workerUrl}/share/${jobId}?lang=${currentLang}`
+  const title = job.title[currentLang] || job.title['en']
+
+  if (navigator.share) {
+    navigator.share({ title, url: shareUrl }).catch(() => {})
+  } else {
+    navigator.clipboard.writeText(shareUrl)
+      .then(() => showToast(t('share_copied')))
+      .catch(() => {
+        // Fallback for older browsers
+        const ta = document.createElement('textarea')
+        ta.value = shareUrl
+        ta.style.position = 'fixed'
+        ta.style.opacity = '0'
+        document.body.appendChild(ta)
+        ta.select()
+        document.execCommand('copy')
+        document.body.removeChild(ta)
+        showToast(t('share_copied'))
+      })
+  }
+}
+
+function showToast(message) {
+  const toast = document.getElementById('toast')
+  if (!toast) return
+  toast.textContent = message
+  toast.classList.add('toast--visible')
+  setTimeout(() => toast.classList.remove('toast--visible'), 2500)
 }
 
 // ── Modal ──────────────────────────────────────────────────────────
@@ -147,6 +193,20 @@ async function initJobs() {
   renderFooterContact()
   await fetchJobs()
   renderJobCards()
+
+  // Show toast if redirected from a filled position
+  const params = new URLSearchParams(window.location.search)
+  if (params.get('filled') === '1') {
+    // Apply language from URL param if provided (overrides localStorage)
+    const urlLang = params.get('lang')
+    if (urlLang && typeof switchLanguage === 'function') {
+      switchLanguage(urlLang)
+    }
+    showToast(t('job_filled'))
+    // Clean params from URL without reloading
+    const clean = window.location.pathname + window.location.hash
+    history.replaceState(null, '', clean)
+  }
 
   // Modal close handlers
   document.getElementById('modal-close').addEventListener('click', closeApplyModal)
